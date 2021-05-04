@@ -9,6 +9,7 @@ import 'firebase/analytics';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
+
 firebase.initializeApp({
   apiKey: "AIzaSyBlCmXMP1hdbZIibDAhENHb__uLC4VrEtw",
     authDomain: "trashdiscord-70a03.firebaseapp.com",
@@ -19,21 +20,28 @@ firebase.initializeApp({
     measurementId: "G-2Q85W06ESV"
 })
 
+
+
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+const analytics = firebase.analytics();
+
+
 function App() {
 
   const [user] = useAuthState(auth);
 
   return (
     <div className="App">
-      <header className="App-header">
-           <header>
-
-           </header>
-
-           <section>
-               {user ? <ChatRoom />: <SignIn />}
-           </section>
+      <header>
+        <h1>⚛️🔥💬</h1>
+        <SignOut />
       </header>
+
+      <section>
+        {user ? <ChatRoom /> : <SignIn />}
+      </section>
+
     </div>
   );
 }
@@ -42,7 +50,7 @@ function SignIn() {
 
   const signInWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider);
+    auth.signInWithPopup(provider)
   }
 
   return (
@@ -53,6 +61,13 @@ function SignIn() {
   )
 
 }
+
+function SignOut() {
+  return auth.currentUser && (
+    <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
+  )
+}
+
 
 function ChatRoom() {
   const dummy = useRef();
@@ -98,5 +113,20 @@ function ChatRoom() {
     </form>
   </>)
 }
+
+
+function ChatMessage(props) {
+  const { text, uid, photoURL } = props.message;
+
+  const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
+
+  return (<>
+    <div className={`message ${messageClass}`}>
+      <img src={photoURL} />
+      <p>{text}</p>
+    </div>
+  </>)
+}
+
 
 export default App;
