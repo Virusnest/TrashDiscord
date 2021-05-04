@@ -1,1 +1,1 @@
-web: cd trashdiscord && npm start
+web: npm start
