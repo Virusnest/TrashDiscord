@@ -12,7 +12,7 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 firebase.initializeApp({
   apiKey: "AIzaSyBlCmXMP1hdbZIibDAhENHb__uLC4VrEtw",
-    authDomain: "trashdiscord-70a03.firebaseapp.com",
+    authDomain: "trash-discord.herokuapp.com",
     projectId: "trashdiscord-70a03",
     storageBucket: "trashdiscord-70a03.appspot.com",
     messagingSenderId: "955465757058",
