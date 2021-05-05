@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>⚛️🔥💬</h1>
+        <h1>Trash Discord</h1>
         <SignOut />
       </header>
 
@@ -55,8 +55,8 @@ function SignIn() {
 
   return (
     <>
-      <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
-      <p>Do not violate the community guidelines or you will be banned for life!</p>
+      <button className="sign-in" onClick={signInWithGoogle}>Login with Google</button>
+      <p>Do not violate the rules or you will be banned for life!</p>
     </>
   )
 
@@ -64,7 +64,7 @@ function SignIn() {
 
 function SignOut() {
   return auth.currentUser && (
-    <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
+    <button className="sign-out" onClick={() => auth.signOut()}>Logout</button>
   )
 }
 
@@ -82,13 +82,14 @@ function ChatRoom() {
   const sendMessage = async (e) => {
     e.preventDefault();
 
-    const { uid, photoURL } = auth.currentUser;
+    const { uid, photoURL, displayName} = auth.currentUser;
 
     await messagesRef.add({
       text: formValue,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       uid,
-      photoURL
+      photoURL,
+      displayName
     })
 
     setFormValue('');
@@ -116,16 +117,21 @@ function ChatRoom() {
 
 
 function ChatMessage(props) {
-  const { text, uid, photoURL } = props.message;
+  const { text, uid, photoURL, displayName } = props.message;
 
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
-  return (<>
+  return (
     <div className={`message ${messageClass}`}>
       <img src={photoURL} />
       <p>{text}</p>
+      <div class={`name ${messageClass}`}>
+      <p>
+        {displayName}        
+      </p>
+      </div>
     </div>
-  </>)
+  )
 }
 
 
