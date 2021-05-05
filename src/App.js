@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Trash Discord</h1>
+        <h1>#public</h1>
         <SignOut />
       </header>
 
@@ -107,9 +107,9 @@ function ChatRoom() {
 
     <form onSubmit={sendMessage}>
 
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
+      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Message #public" />
 
-      <button type="submit" disabled={!formValue}>🕊️</button>
+      
 
     </form>
   </>)
@@ -125,7 +125,7 @@ function ChatMessage(props) {
     <div className={`message ${messageClass}`}>
       <img src={photoURL} />
       <p>{text}</p>
-      <div class={`name ${messageClass}`}>
+      <div class={`name message ${messageClass}`}>
       <p>
         {displayName}        
       </p>

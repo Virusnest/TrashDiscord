@@ -9,7 +9,7 @@ body {
 }
 
 .App header {
-  background-color: #181717;
+  background-color: #36393f;
   height: 10vh;
   min-height: 50px;
   color: white;
@@ -21,8 +21,22 @@ body {
   align-items: center;
   justify-content: space-between;
   z-index: 99;
-  padding: 10px;
+  padding: 0 8px;
   box-sizing: border-box;
+}
+.App header:after {
+   content:"";
+    background: -webkit-linear-gradient(bottom, #00000000, 
+    #292b30);
+    display: block;
+    height:5px;
+    width: 100%;
+    left: 0;
+    max-width: 728px;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    z-index: 100;
 }
 
 .App section {
@@ -30,7 +44,7 @@ body {
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
-  background-color: rgb(40, 37, 53);
+  background-color: #36393f;
 }
 
 main {
@@ -75,7 +89,7 @@ input {
   line-height: 1.5;
   width: 100%;
   font-size: 1.5rem;
-  background: rgb(58, 58, 58);
+  background: #40444b;
   color: white;
   outline: none;
   border: none;
@@ -123,7 +137,7 @@ p {
   border-radius: 25px;
   position: relative;
   color: white;
-  text-align: center;
+  
 }
 
 .message {
@@ -138,17 +152,44 @@ p {
 
 .sent p {
   color: white;
-  background: #0b93f6;
+  background: #304859;
   align-self: flex-end;
+  text-align: right;
+  
 }
 .received p {
-  background: #e5e5ea;
-  color: black;
+   
+  /*background: #e5e5ea;*/
+  color: white; 
+   text-align: left;
+}
+
+
+.name.sent p {
+    margin-left: -72px;
+    text-align: right !important;
+    
+    font-weight: bold;
+    background: none;
+    color: white;
+    bottom: 30px;
+    left: 85px;
+    
+}
+
+.name.received p {
+    text-align: right;
+    
+    background: none;
+    color: white;
+    bottom: 30px;
+    left: -85px;
+    
 }
 
 img {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 100%;
   margin: 2px 5px;
 }
