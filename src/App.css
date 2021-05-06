@@ -146,40 +146,45 @@ p {
 }
 
 
+
 .sent {
   flex-direction: row-reverse;
+  
 }
 
 .sent p {
   color: white;
-  background: #304859;
+  background: none;
   align-self: flex-end;
   text-align: right;
-  
+  bottom: -10px;
 }
 .received p {
-   
+   position: relative;
   /*background: #e5e5ea;*/
   color: white; 
-   text-align: left;
+   text-align: left !important
 }
 
+#test p{
+    border: none !important
+}
 
 .name.sent p {
-    margin-left: -72px;
+    margin-left: -100px;
     text-align: right !important;
-    
-    font-weight: bold;
+    position: relative;
+    font-weight: 500;
     background: none;
     color: white;
-    bottom: 30px;
-    left: 85px;
-    
+    bottom: 15px;
+    left: 45px;
+    display: flex !important
 }
 
 .name.received p {
     text-align: right;
-    
+    float: left;
     background: none;
     color: white;
     bottom: 30px;
@@ -187,8 +192,14 @@ p {
     
 }
 
+span {
+    position: relative;
+    top: -10px;
+}
+
 img {
   width: 40px;
+  
   height: 40px;
   border-radius: 100%;
   margin: 2px 5px;
