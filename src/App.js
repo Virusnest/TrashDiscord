@@ -72,7 +72,7 @@ function SignOut() {
 function ChatRoom() {
   const dummy = useRef();
   const messagesRef = firestore.collection('messages');
-  const query = messagesRef.orderBy('createdAt')//.limit(100);
+  const query = messagesRef.orderBy('createdAt').limit(100);
 
   const [messages] = useCollectionData(query, { idField: 'id' });
 
@@ -83,7 +83,8 @@ function ChatRoom() {
     e.preventDefault();
 
     const { uid, photoURL, displayName} = auth.currentUser;
-
+    
+    if(formValue.replace(/\s/g, '').length){
     await messagesRef.add({
       text: formValue,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
@@ -91,7 +92,7 @@ function ChatRoom() {
       photoURL,
       displayName
     })
-
+    }
     setFormValue('');
     dummy.current.scrollIntoView({ behavior: 'smooth' });
   }
@@ -122,13 +123,16 @@ function ChatMessage(props) {
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
   return (
-    <div className={`message ${messageClass}`}>
-      <img src={photoURL} />
-      <div className={`name ${messageClass}`}>
-          <p>yesy</p>
+    <div>
+      <div class="image">
+          <img src={photoURL} />
       </div>
-      <p>{text}</p>
-      
+      <div className={`name received`}>
+        <p>{displayName}</p>
+      </div>
+      <div className={`message received`}>
+          <p>{text}</p>
+      </div>
     </div>
   )
 }

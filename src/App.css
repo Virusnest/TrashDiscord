@@ -130,18 +130,22 @@ ul, li {
 }
 
 p {
+  border: solid;
+  border-width: 1px;
   max-width: 500px;
   margin-bottom: 12px;
   line-height: 24px;
   padding: 10px 20px;
-  border-radius: 25px;
+  border-radius: 0px;
   position: relative;
+  
   color: white;
   
 }
 
 .message {
   display: flex;
+  
   align-items: center;
 }
 
@@ -158,38 +162,56 @@ p {
   align-self: flex-end;
   text-align: right;
   bottom: -10px;
+  right: -60px;
 }
 .received p {
    position: relative;
-  /*background: #e5e5ea;*/
-  color: white; 
-   text-align: left !important
+   /*background: #e5e5ea;*/
+   color: white; 
+   margin-right: inherit;
+   bottom: 55px;
+   left: 50px;
+   text-align: left;
+   /*left: -300px;
+   bottom: -10px;*/
+   padding-top: 0px;
+   padding-bottom: 0px;
+   padding-right: inherit;
+   
+   
 }
 
-#test p{
-    border: none !important
+.image img{
+    float:left;
 }
 
 .name.sent p {
-    margin-left: -100px;
-    text-align: right !important;
+    margin-right: -30px;
+    text-align: left !important;
     position: relative;
     font-weight: 500;
     background: none;
     color: white;
     bottom: 15px;
-    left: 45px;
+    right: 12px;
     display: flex !important
 }
 
 .name.received p {
-    text-align: right;
-    float: left;
+    text-align: left;
+    font-weight: 500;
+    bottom: 20px;
+    left: 0px;
     background: none;
     color: white;
-    bottom: 30px;
-    left: -85px;
-    
+    /*bottom: 15px;
+    left: -10px;
+    padding-right: 80px;*/
+}
+
+div {
+    border: solid;
+    border-width: 1px;
 }
 
 span {
@@ -199,8 +221,9 @@ span {
 
 img {
   width: 40px;
-  
+  border: solid;
+  border-width: 1px;
   height: 40px;
-  border-radius: 100%;
+  border-radius: 00%;
   margin: 2px 5px;
 }
