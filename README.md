@@ -6,6 +6,9 @@ This is a chat app built with React and Firebase as a backend
 ## Running / Building
 
 **Building**
+
 `yarn build`
+
 **Running**
+
 `yarn start`
