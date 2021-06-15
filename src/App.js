@@ -143,9 +143,10 @@ function ChatMessage(props) {
 
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
+    console.log(createdAt)
+    console.log(text)
+    console.log(displayName)
   return (
-
-    
     <div class="container">
         <div class="image">
             <img src={photoURL} />
@@ -153,7 +154,7 @@ function ChatMessage(props) {
         <div>
             <div className={`name`}>
                 <p>{displayName}</p>
-  <p id="date">{formatDate(new Date(createdAt.seconds * 1000))}</p>
+                <p id="date">{"o"}</p>
             </div>
             <div className={`message`}>
                 <p>{text}</p>
@@ -161,7 +162,10 @@ function ChatMessage(props) {
         </div>
     </div>
   )
+
 }
+
+
 
 
 export default App;
