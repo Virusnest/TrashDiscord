@@ -9,9 +9,6 @@ import 'firebase/analytics';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
-class Doc extends React.Component{
-  
-}
 
 firebase.initializeApp({
   apiKey: "AIzaSyBlCmXMP1hdbZIibDAhENHb__uLC4VrEtw",
