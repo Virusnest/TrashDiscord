@@ -123,16 +123,20 @@ function ChatMessage(props) {
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
   return (
-    <div>
-      <div class="image">
-          <img src={photoURL} />
-      </div>
-      <div className={`name received`}>
-        <p>{displayName}</p>
-      </div>
-      <div className={`message received`}>
-          <p>{text}</p>
-      </div>
+
+    
+    <div class="container">
+        <div class="image">
+            <img src={photoURL} />
+        </div>
+        <div>
+            <div className={`name`}>
+                <p>{displayName}</p>
+            </div>
+            <div className={`message`}>
+                <p>{text}</p>
+            </div> 
+        </div>
     </div>
   )
 }

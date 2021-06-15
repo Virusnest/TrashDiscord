@@ -128,102 +128,41 @@ ul, li {
   text-align: left;
   list-style: none;
 }
-
-p {
-  border: solid;
-  border-width: 1px;
-  max-width: 500px;
-  margin-bottom: 12px;
-  line-height: 24px;
-  padding: 10px 20px;
-  border-radius: 0px;
-  position: relative;
-  
-  color: white;
-  
-}
-
-.message {
-  display: flex;
-  
-  align-items: center;
-}
-
-
-
-.sent {
-  flex-direction: row-reverse;
-  
-}
-
-.sent p {
-  color: white;
-  background: none;
-  align-self: flex-end;
-  text-align: right;
-  bottom: -10px;
-  right: -60px;
-}
-.received p {
-   position: relative;
-   /*background: #e5e5ea;*/
-   color: white; 
-   margin-right: inherit;
-   bottom: 55px;
-   left: 50px;
-   text-align: left;
-   /*left: -300px;
-   bottom: -10px;*/
-   padding-top: 0px;
-   padding-bottom: 0px;
-   padding-right: inherit;
-   
-   
-}
-
-.image img{
-    float:left;
-}
-
-.name.sent p {
-    margin-right: -30px;
-    text-align: left !important;
-    position: relative;
-    font-weight: 500;
-    background: none;
-    color: white;
-    bottom: 15px;
-    right: 12px;
-    display: flex !important
-}
-
-.name.received p {
-    text-align: left;
-    font-weight: 500;
-    bottom: 20px;
-    left: 0px;
-    background: none;
-    color: white;
-    /*bottom: 15px;
-    left: -10px;
-    padding-right: 80px;*/
-}
-
-div {
-    border: solid;
-    border-width: 1px;
-}
-
-span {
-    position: relative;
-    top: -10px;
-}
-
 img {
   width: 40px;
-  border: solid;
-  border-width: 1px;
+  border-radius: 100px;
+  height: 40px
+}
+.container{
+  display: flex;
+  flex-direction: row;
+}
+.name{
+    text-align: left;
+    
+}
+
+.message{
+    text-align: left;
+}
+
+.name p{
+    text-align: left;
+    margin: 0px;
+}
+
+.message p{
+    text-align: left;
+    margin: 0px;
+}
+
+.image{
+  width: 40px;
   height: 40px;
-  border-radius: 00%;
   margin: 2px 5px;
+}
+
+div{
+    border: solid;
+    border-width: 1px;
 }
