@@ -143,7 +143,7 @@ function ChatMessage(props) {
 
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
-    console.log(createdAt)
+    //console.log(createdAt)
     console.log(text)
     console.log(displayName)
   return (
