@@ -139,11 +139,13 @@ img {
 }
 .name{
     text-align: left;
-    
+    font-weight: 800;
+    color: white;
 }
 
 .message{
     text-align: left;
+    color: white;
 }
 
 .name p{
@@ -163,6 +165,6 @@ img {
 }
 
 div{
-    border: solid;
-    border-width: 1px;
+    /*border: solid;
+    border-width: 1px;*/
 }
