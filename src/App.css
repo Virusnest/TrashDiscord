@@ -54,6 +54,20 @@ main {
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
+  
+}
+
+#main * {
+    /* don't allow the children of the scrollable element to be selected as an anchor node */
+    overflow-anchor: none;
+}
+
+#anchor {
+    /* allow the final child to be selected as an anchor node */
+    overflow-anchor: auto;
+
+    /* anchor nodes are required to have non-zero area */
+    height: 1px;
 }
 
 main::-webkit-scrollbar {
@@ -136,16 +150,20 @@ img {
 .container{
   display: flex;
   flex-direction: row;
+  padding-top: 20px;
 }
 .name{
     text-align: left;
-    font-weight: 800;
+    font-weight: 500;
     color: white;
+    display: flex;
+    flex-direction: row;
 }
 
 .message{
     text-align: left;
     color: white;
+    font-weight: 400;
 }
 
 .name p{
@@ -164,7 +182,16 @@ img {
   margin: 2px 5px;
 }
 
-div{
-    /*border: solid;
-    border-width: 1px;*/
+
+/*div{
+    border: solid;
+    border-width: 1px;
+}*/
+
+#date{
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: .75rem;
+    color: #6b7280;
+    padding-top: 3px;
 }

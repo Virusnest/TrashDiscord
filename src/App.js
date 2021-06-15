@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 
 import firebase from 'firebase/app';
@@ -8,6 +8,8 @@ import 'firebase/analytics';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { formatRelative } from 'date-fns';
+
 
 
 firebase.initializeApp({
@@ -45,6 +47,18 @@ function App() {
     </div>
   );
 }
+
+const formatDate = date => {
+  let formattedDate = '';
+  if (date) {
+    // Convert the date in words relative to the current date
+    formattedDate = formatRelative(date, new Date());
+    // Uppercase the first letter
+    formattedDate =
+      formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+  }
+  return formattedDate;
+};
 
 function SignIn() {
 
@@ -92,18 +106,24 @@ function ChatRoom() {
       photoURL,
       displayName
     })
-    }
+    
+}
     setFormValue('');
-    dummy.current.scrollIntoView({ behavior: 'smooth' });
-  }
+}
+    useEffect(() => {
+        dummy.current.scrollIntoView({ behavior: 'smooth' });
+    },[messages])
+    
+
 
   return (<>
-    <main>
+    <main id="main">
 
       {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
 
       <span ref={dummy}></span>
-
+     
+    
     </main>
 
     <form onSubmit={sendMessage}>
@@ -117,8 +137,9 @@ function ChatRoom() {
 }
 
 
+
 function ChatMessage(props) {
-  const { text, uid, photoURL, displayName } = props.message;
+  const { text, uid, photoURL, displayName, createdAt } = props.message;
 
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
@@ -132,6 +153,7 @@ function ChatMessage(props) {
         <div>
             <div className={`name`}>
                 <p>{displayName}</p>
+  <p id="date">{formatDate(new Date(createdAt.seconds * 1000))}</p>
             </div>
             <div className={`message`}>
                 <p>{text}</p>
