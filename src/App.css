@@ -164,6 +164,9 @@ img {
     text-align: left;
     color: white;
     font-weight: 400;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break:break-all;
 }
 
 .name p{
