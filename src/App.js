@@ -91,7 +91,7 @@ var MyDiv1
 document.addEventListener('keydown', function(event) {
   if (event.ctrlKey && event.keyCode == 13 && active==true) {
     
-    ReactDOM.render(parse(MyDiv1), document.getElementById('root'))
+    //ReactDOM.render(parse(MyDiv1), document.getElementById('root'))
     
   }
 });
@@ -101,19 +101,19 @@ document.addEventListener("visibilitychange", event => {
     console.log("tab is active")
     //ReactDOM.unmountComponentAtNode(document.getElementById('app'))
   } else {
-    MyDiv1 = document.getElementById('root').innerHTML
-    Fullscreen()
+    //MyDiv1 = document.getElementById('root').innerHTML
+    //Fullscreen()
     active = true;
   }
 })
 
 function Fullscreen() {
   console.log("ran")
-  ReactDOM.render(
-  <div id="full">o</div>,
-  document.getElementById('root')
+  //ReactDOM.render(
+  //<div id="full"></div>,
+  //document.getElementById('root')
   
-);
+//);
 }
 
 function ChatRoom() {
