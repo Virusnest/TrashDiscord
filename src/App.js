@@ -90,7 +90,7 @@ var active;
 var MyDiv1
 document.addEventListener('keydown', function(event) {
   if (event.ctrlKey && event.keyCode == 13 && active==true) {
-      alert("test")
+    
     ReactDOM.render(parse(MyDiv1), document.getElementById('root'))
     
   }
