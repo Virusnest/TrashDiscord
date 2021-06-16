@@ -8,7 +8,6 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
     <head>
-        <title>Trash Discord</title>
     </head>
   </React.StrictMode>,
   document.getElementById('root')

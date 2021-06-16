@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import ReactDOM from 'react-dom'
 import './App.css';
 
 import firebase from 'firebase/app';
@@ -9,17 +10,20 @@ import 'firebase/analytics';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { formatRelative } from 'date-fns';
+import parse from 'html-react-parser';
+
+
 
 
 
 firebase.initializeApp({
-  apiKey: "AIzaSyBlCmXMP1hdbZIibDAhENHb__uLC4VrEtw",
-    authDomain: "trashdiscord-70a03.firebaseapp.com",
-    projectId: "trashdiscord-70a03",
-    storageBucket: "trashdiscord-70a03.appspot.com",
-    messagingSenderId: "955465757058",
-    appId: "1:955465757058:web:d15b1bc9fd850ec8b91f9b",
-    measurementId: "G-2Q85W06ESV"
+  apiKey: "AIzaSyBvLHhnnzw3B0LHaDHqJMppqeoz4wUI1ys",
+    authDomain: "viral-chat-e9512.firebaseapp.com",
+    projectId: "viral-chat-e9512",
+    storageBucket: "viral-chat-e9512.appspot.com",
+    messagingSenderId: "506840620521",
+    appId: "1:506840620521:web:c301c44d326e24a05f7f78",
+    measurementId: "G-91G8RQ9PWV"
 })
 
 
@@ -34,7 +38,7 @@ function App() {
   const [user] = useAuthState(auth);
 
   return (
-    <div className="App">
+    <div className="App" id="app">
       <header>
         <h1>#public</h1>
         <SignOut />
@@ -82,6 +86,35 @@ function SignOut() {
   )
 }
 
+var active;
+var MyDiv1
+document.addEventListener('keydown', function(event) {
+  if (event.ctrlKey && event.keyCode == 13 && active==true) {
+      alert("test")
+    ReactDOM.render(parse(MyDiv1), document.getElementById('root'))
+    
+  }
+});
+
+document.addEventListener("visibilitychange", event => {
+  if (document.visibilityState == "visible") {
+    console.log("tab is active")
+    //ReactDOM.unmountComponentAtNode(document.getElementById('app'))
+  } else {
+    MyDiv1 = document.getElementById('root').innerHTML
+    Fullscreen()
+    active = true;
+  }
+})
+
+function Fullscreen() {
+  console.log("ran")
+  ReactDOM.render(
+  <div id="full">o</div>,
+  document.getElementById('root')
+  
+);
+}
 
 function ChatRoom() {
   const dummy = useRef();
