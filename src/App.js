@@ -175,10 +175,10 @@ function ChatMessage(props) {
   const { text, uid, photoURL, displayName, createdAt } = props.message;
 
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
-
-    //console.log(createdAt)
+    //console.log(time)
     console.log(text)
     console.log(displayName)
+    
   return (
     <div class="container">
         <div class="image">
@@ -187,7 +187,7 @@ function ChatMessage(props) {
         <div>
             <div className={`name`}>
                 <p>{displayName}</p>
-                <p id="date">{"o"}</p>
+                <p id="date">{"{Time Placeholder}"}</p>
             </div>
             <div className={`message`}>
                 <p>{text}</p>
